@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">  <!-- IMPORTAÇÃO JSF IMPORTANTE FAZER -->
+
+
+<!-- tags de texto, tabela e quebra de linha PODEM SER usados em HTML misturado com JSF -->
+<h:head>
+	<title>Olá JSF</title>
+</h:head>
+<h:body>
+	<h:form id="formPessoa">
+		
+		<h1> Olá JSF</h1>
+		
+		<script>
+		function alteraValorCampo(){
+			var campo = document.getElementById('formPessoa:nome');
+			campo.value = 'eu cliquei no campo :)'		;
+		}
+		</script>
+		
+		<h:inputText id="nome" onclick="this.value = 'troquei o valor'" onchange="this.value = this.value.toUpperCase();"></h:inputText>
+		
+		<br/>
+		<br/>
+		<h:commandButton value="Clicar"  onclick="alteraValorCampo();"></h:commandButton>
+		
+	
+		<!-- Navegação implícita (definida direto no action do xhtml) -->
+		<h:commandButton value="Navegar" action="primeirapagina"> </h:commandButton>
+
+	</h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,52 @@
+Principais Escopos do ManagedBean
+
+@NoneScoped
+O bean será instanciado a cada vez que for referenciado
+
+@RequestScoped   (padrão)
+Tem vida curta, começa quando é referenciado em uma única requisição HTTP e termina quando a resposta é enviada de volta ao cliente
+
+@ViewScoped
+A instancia permanece ativa até que o usuário navegue para uma próxima página
+
+@SessionScoped
+Mantém a instância durante diversas requisições e até mesmo navegações entre páginas, até que a sessão do usuário seja invalidada ou o tempo limite é atingido. Cada usuário possui sua sessão de navegação, portanto, os objetos não são compartilhados entre os usuários
+
+@ApplicationScoped
+Mantém a instância durante todo o tempo de execução da aplicação. É um escopo que compartilha os objetos para todos os usuários do sistema.
+
+
+Não esquecer de importar 
+
+xmlns:h="http://java.sun.com/jsf/html"  na Página XHTML
+
+
+BACKING BEAN - pouco usada (usada com cuidado)
+'Nao é recomendada' - amarração com objetos
+
+Pode trabalhar os comandos do front no Back-end atraves do 'binding'.
+no ManagedBean, existe um objeto para cada referencia HTML
+
+ex:
+ <h:commandButton  binding="#{pessoaBean.commandButton}"  value="Adicionar Nome" action="#{pessoaBean.addNome}" />
+
+no Back:
+
+private HtmlCommandButton commandButton;
+
+e posso trabalhar no back-end utilizando o commandButton ~ dando funções específicas para esse botão
+
+
+
+
+faces-config : configuração de coisas avançadas no projeto
+web.xml : arquivo de configuração e detalhes de implementação dos recursos (não é obrigatório mas da pra criar)
+	  Para o JSF funcionar, precisa usar o web.xml para implementar o servlet Faces Servlet
+
+ <url-pattern>/faces/*</url-pattern> 
+
+para 
+
+ <url-pattern>*.jsf</url-pattern>   
+
+TIRA o faces da url e coloca o .jsf no final
